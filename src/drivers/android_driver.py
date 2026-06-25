@@ -6,7 +6,7 @@ from core.exceptions import (
     DeviceDisconnectedError,
 )
 from core.interfaces.driver import Driver
-
+from core.logger import logger
 
 class AndroidDriver(Driver):
 
@@ -20,6 +20,6 @@ class AndroidDriver(Driver):
         if chance < 0.30:
             raise DeviceDisconnectedError()
 
-        print(
+        logger.info(
             f"[ANDROID] Executed: {action.name}"
         )

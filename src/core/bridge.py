@@ -8,6 +8,7 @@ from core.exceptions import (
 )
 from core.interfaces.driver import Driver
 from core.interfaces.proxy_manager import ProxyManager
+from core.logger import logger
 
 
 class Bridge:
@@ -34,14 +35,14 @@ class Bridge:
 
             except ProxyBannedError:
 
-                print(
+                logger.warning(
                     f"[BRIDGE] Proxy banned while "
                     f"executing {action.name}"
                 )
 
                 self.proxy_manager.rotate_proxy()
 
-                print(
+                logger.warning(
                     "[BRIDGE] Retrying same action..."
                 )
 
@@ -61,7 +62,7 @@ class Bridge:
 
                 backoff = 2 ** (device_retry - 1)
 
-                print(
+                logger.warning(
                     f"[BRIDGE] Device disconnected. "
                     f"Retry {device_retry}/3 "
                     f"in {backoff}s"
