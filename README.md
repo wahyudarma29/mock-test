@@ -26,7 +26,7 @@ GET /
 Response:
 
 {
-  "message": "Bridge Service Running"
+  "message": "Service Running"
 }
 Execute Action
 

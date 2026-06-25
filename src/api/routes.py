@@ -23,9 +23,9 @@ def get_bridge() -> Bridge:
     )
 
 @router.get("/")
-def hello_world():
+def service_running():
     return {
-        "message": "Hello World"
+        "message": "Service Running"
     }
 
 @router.post("/actions")
