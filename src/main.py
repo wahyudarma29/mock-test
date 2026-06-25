@@ -17,13 +17,6 @@ from core.exceptions import (
     AgentTaskAborted,
 )
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s  %(levelname)-8s  %(name)s — %(message)s",
-    datefmt="%H:%M:%S",
-    stream=sys.stdout,
-)
-
 def main():
 
     driver = AndroidDriver()
@@ -43,7 +36,7 @@ def main():
         crew.kickoff()
 
     except AgentTaskAborted as e:
-        print(f"[SYSTEM] {e}")
+        print(f"system error {e}")
 
 
 if __name__ == "__main__":
