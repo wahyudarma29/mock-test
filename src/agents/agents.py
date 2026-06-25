@@ -1,19 +1,14 @@
-from core.bridge import Bridge
+from core.agents import BaseAgent
 from agents.tasks import (
     OPEN_APP,
     SCROLL,
     LIKE,
 )
 
-class SocialAgent:
-
-    def __init__(self, bridge: Bridge):
-        self.bridge = bridge
+class SocialAgent(BaseAgent):
 
     def run(self):
-
         self.bridge.execute(OPEN_APP)
         self.bridge.execute(SCROLL)
         self.bridge.execute(LIKE)
-
-        print("[AGENT] Task complete")
+        print("[AGENT] workflow completed")
